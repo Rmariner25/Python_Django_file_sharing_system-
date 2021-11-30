@@ -1,0 +1,212 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+
+<style>
+.ovvv {
+word-break:break-all;
+word-wrap: break-word;
+}
+
+
+.cardee {
+
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+ 
+}
+.iomg {
+ width: 42px;
+  height: 42px;
+  border-radius: 100%;
+
+}
+
+.xmz {
+
+ font-size: 18px;
+ 
+ 
+ }
+
+.xmzd {
+
+ font-size: 18px;
+ }
+
+
+hr.style-one {
+border: 0;
+height: 1px;
+background: #ced4da;
+
+}
+
+
+</style>
+	
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+	
+          <div class="row">
+
+
+
+
+
+
+
+  <div class="col-md-12 grid-margin stretch-card">
+              <div class="card  cardee">
+                <div class="card-body">
+				
+									{% if object.author == user %}
+				
+			 <div class="d-flex justify-content-between">
+						  
+	   &nbsp;
+				
+				
+				   <div class="dropdown">
+                          <a id="dropdownMenuIconButton2" href="#" style="text-decoration:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="xmz ti-more-alt text-secondary"></i> 
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton2">
+                      
+                            <a class="dropdown-item" href="{% url 'post-update' post.id %}">Edit</a>
+                           
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'post-delete' post.id %}">Delete</a>
+                          </div>
+                        </div>
+						
+					</div>	
+						
+				
+				
+				{% endif %}
+				 <div class="media">
+					
+					{% if object.author == user %}
+            		 <a href="{% url 'user-posts' post.author.username %}"><img class="iomg d-flex align-self-start mr-3 " src="{% static 'blog/images/faces/face28.jpg' %}" alt="."></a>
+	     
+		 {% else %}
+	            	<a href="{% url 'user-posts' post.author.username %}"><img class="iomg  d-flex align-self-start mr-3" src="{% static 'blog/images/faces/face27.jpg' %}" alt="."></a>
+	  {% endif %}
+
+					
+					
+                    <div class="media-body">
+					
+					
+<h5>
+                     {% if object.author == user %}
+             <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}" style="text-decoration:none">You</a>
+   
+	{% else %}
+	              <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}"  style="text-decoration:none">{{ post.author }}</a>
+	  {% endif %}
+			
+</h5>			
+
+<h4>		   
+              <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+				</h4>	
+	<br>
+                    </div>
+					
+                  </div> 
+		
+	
+		
+	
+     
+           <h4>{{ object.title }}</h4> 
+		
+
+           <p class="lead">{{ object.content }}</p> 
+
+			                 <hr class="style-one">
+				
+			 
+				 {% if object.file %}
+               
+				 <div class="d-flex justify-content-between">
+				
+			 
+		 {% if object.extension == '.pdf' %}   
+		  <label class="badge badge-danger font-weight-bold">{{ object.extension | slice:"1:" | upper }} &#183; {{ object.file.size | filesizeformat}}</label>
+	 {% elif object.extension == '.ppt' or object.extension == '.pptx' %}  
+		  <label class="badge badge-warning font-weight-bold">{{ object.extension | slice:"1:" | upper }} &#183; {{ object.file.size | filesizeformat}}</label>
+	 {% elif object.extension == '.doc' or object.extension == '.docx' %}  	  
+		    <label class="badge badge-info font-weight-bold">{{ object.extension | slice:"1:" | upper }} &#183; {{ object.file.size | filesizeformat}}</label>
+			
+		{% elif object.extension == '.txt' %}  	  
+		    <label class="badge badge-success font-weight-bold">{{ object.extension | slice:"1:" | upper }} &#183; {{ object.file.size | filesizeformat}}</label>
+
+		{% else %}  	  
+		    <label class="badge badge-danger font-weight-bold">{{ object.extension | slice:"1:" | upper }} &#183; {{ object.file.size | filesizeformat}}</label>
+			
+          {% endif %}
+
+            <a   href="{{ object.file.url }}"   download> <button type="submit" class="btn btn-primary btn-icon-text  btn-sm ">   
+			 <i class="ti-download btn-icon-prepend"></i>   
+			Download
+			</button> 
+			</a>
+			
+		  </div>
+		  
+		
+          {% endif %}
+		  
+		  
+                </div>
+              </div>
+            </div>
+
+
+
+  
+
+</div>
+
+
+
+<br>
+	<br>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
