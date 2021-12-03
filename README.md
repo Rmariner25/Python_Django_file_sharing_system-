@@ -18,11 +18,11 @@ A Django web application that allows users to view, share and manage study resou
 * Admin pages to regulate the content and manage users and their roles.
 * The web-pages are responsive, clean and clutter-free.
 
-## Snaps of project
+## Screenshots
 
 Login page:
 
-<img src="Screenshots/login_page.jpg" alt="Home page n">
+![Home page](/Screenshots/login_page.jpg?raw=true "Home page") 
 
 Home page (logged in):
 
