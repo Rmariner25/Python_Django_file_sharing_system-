@@ -1,5 +1,5 @@
 # Ushare - Django study resources sharing system
-[![MIT License][https://img.shields.io/github/license/Rmariner25/django_web_app?style=for-the-badge]][https://github.com/Rmariner25/django_web_app/blob/af149e320aea416abf32c6b7d22a9be693cf8e14/LICENSE]
+[![MIT License](https://img.shields.io/github/license/Rmariner25/django_web_app?style=for-the-badge)](https://github.com/Rmariner25/django_web_app/blob/af149e320aea416abf32c6b7d22a9be693cf8e14/LICENSE)
 
 A Django web application to allow users to view, share and manage study resources. 
 
