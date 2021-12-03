@@ -30,4 +30,4 @@ Home page (logged in):
 
 New upload (logged in):
 
-<img src="Screenshots/new_upload.jpg" alt="Home page">
+<img src="Screenshots/new_upld.jpg" alt="Home page">
