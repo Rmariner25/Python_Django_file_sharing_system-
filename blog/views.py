@@ -13,7 +13,7 @@ from .models import Post
 import operator
 from django.urls import reverse_lazy
 from django.contrib.staticfiles.views import serve
-
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 
@@ -25,15 +25,26 @@ def home(request):
 
 def search(request):
     template='blog/home.html'
-
-    query=request.GET.get('q')
+   
+    querr=request.GET.get('q')
+ 
+    query=querr.strip()
     
-    result=Post.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
-    if not bool(result):
-        return render(request,'blog/empte.html')
+    if query=="":
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+   
     else:
-        paginate_by= 5
-        context={ 'posts':result }
+        pass
+    result=Post.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
+    
+    if not bool(result):
+        context={'foo': query, 'fop': 'Your search - ', 'fopp': ' did not many any uploaded content.' }
+        return render(request,template,context)
+      
+    else:
+        
+        context={ 'posts':result, 'foro':query }
+     
         return render(request,template,context)
    
 
@@ -44,7 +55,7 @@ def getfile(request):
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'blog/home.html'  
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5
@@ -52,7 +63,7 @@ class PostListView(ListView):
 
 class UserPostListView(ListView):
     model = Post
-    template_name = 'blog/user_posts.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'blog/user_posts.html'  
     context_object_name = 'posts'
     paginate_by = 5
 

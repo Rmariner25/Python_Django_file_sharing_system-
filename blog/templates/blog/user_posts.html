@@ -15,15 +15,15 @@ word-wrap: break-word;
  
 }
 .iomg {
- width: 42px;
-  height: 42px;
+ width: 38px;
+  height: 38px;
   border-radius: 100%;
 
 }
 
 .xmz {
 
- font-size: 18px;
+ font-size: 16.8px;
  
  
  }
@@ -43,6 +43,12 @@ background: #ced4da;
 
 }
 
+div.deedw {
+  line-height: 2.6;
+}
+
+
+
 
 
 </style>
@@ -59,50 +65,83 @@ background: #ced4da;
 
           <div class="row">
              
-	     
+	    
 	  
 	  
-	  <div class="col-md-12 grid-margin stretch-card transparent">
-                  <div class="card card-inverse-primary">
-                    <div class="card-body">
+	  <div class="col-md-12">
+                  
                
 			   
 			     {% for post in posts %}
 	{% if forloop.first %}
 	{% if post.author == user %}
+	   
          	<h3>Your Uploads ({{ page_obj.paginator.count }})</h3>
-   
+    
 	{% else %}
 	 <h3>Uploads by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h3>
 	  {% endif %}
 	{% endif %}
 	{% endfor %}
 			   
-
-                    </div>
-                  </div>
+ 
+                    
                 </div>
 	  
 	
-	  
+&nbsp;
 	  
 	   {% for post in posts %}
 	  
 	  
 	  <div class="col-md-12 grid-margin stretch-card">
-              <div class="card  cardee">
+              <div class="card cardee">
                 <div class="card-body">
 				
 									{% if post.author == user %}
 				
 			 <div class="d-flex justify-content-between">
 						  
-	   &nbsp;
+				 <div class="media">
+					
+
+            		 <a href="{% url 'user-posts' post.author.username %}"><img class="iomg d-flex align-self-start mr-3 " src="{% static 'blog/images/faces/face28.jpg' %}" alt="."></a>
+	    
+
+	  
+
+					
+					
+                    <div class="media-body">
+					
+					
+<h5>
+                   
+             <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}" style="text-decoration:none">You</a>
+  
+	           
+	 
+			
+</h5>			
+
+<h4>		   
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+				</h4>	
+		
+                    </div>
+					
+                  </div> 
+				
+				
+				
 				
 				
 				   <div class="dropdown">
                           <a id="dropdownMenuIconButton2" href="#" style="text-decoration:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="xmz ti-more-alt text-secondary"></i> 
+                          <button type="button" class="btn btn-light btn-icon btn-sm">
+
+						 <i class="ti-more"></i>
+                          </button>						 
                           </a>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton2">
                       
@@ -116,16 +155,15 @@ background: #ced4da;
 					</div>	
 						
 				
+{% else %}
+
+
 				
-				{% endif %}
-				 <div class="media">
-					
-					{% if post.author == user %}
-            		 <a href="{% url 'user-posts' post.author.username %}"><img class="iomg d-flex align-self-start mr-3 " src="{% static 'blog/images/faces/face28.jpg' %}" alt="."></a>
-	     
-		 {% else %}
+								 <div class="media">
+			
+	    
 	            	<a href="{% url 'user-posts' post.author.username %}"><img class="iomg  d-flex align-self-start mr-3" src="{% static 'blog/images/faces/face27.jpg' %}" alt="."></a>
-	  {% endif %}
+	  
 
 					
 					
@@ -133,63 +171,92 @@ background: #ced4da;
 					
 					
 <h5>
-                     {% if post.author == user %}
-             <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}" style="text-decoration:none">You</a>
-   
-	{% else %}
-	              <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}"  style="text-decoration:none">{{ post.author }}</a>
-	  {% endif %}
+                   
+         
+  
+	              <a class="text-dark ovvv" href="{% url 'user-posts' post.author.username %}"  style="text-decoration:none">{{ post.author|truncatechars:22 }}</a>
+	 
 			
 </h5>			
 
 <h4>		   
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-				</h4>	
-				&nbsp;
+				</h4>
                     </div>
 					
                   </div> 
-		
-	
-		
-	
-     
-           <h4>{{ post.title }}</h4> 
+				
+				
+				
+			
+				{% endif %}
+				
+				
+								 {% if post.file %}
+               
+			   
+			      
+			
+			   <div class="deedw">
+			    {% if post.extension == '.pdf' %}   
+		  <label class="badge badge-danger font-weight-bold">{{ post.file.size | filesizeformat}} &#183; {{ post.extension | slice:"1:" | upper }}</label>
+	 {% elif post.extension == '.ppt' or post.extension == '.pptx' %}  
+		  <label class="badge badge-warning font-weight-bold">{{ post.file.size | filesizeformat}} &#183; {{ post.extension | slice:"1:" | upper }}</label>
+	 {% elif post.extension == '.doc' or post.extension == '.docx' %}  	  
+		    <label class="badge badge-info font-weight-bold">{{ post.file.size | filesizeformat}} &#183; {{ post.extension | slice:"1:" | upper }}</label>
+			
+		{% elif post.extension == '.txt' %}  	  
+		    <label class="badge badge-success font-weight-bold">{{ post.file.size | filesizeformat}} &#183; {{ post.extension | slice:"1:" | upper }}</label>
+
+		{% else %}  	  
+		    <label class="badge badge-danger font-weight-bold">{{ post.file.size | filesizeformat}} &#183; {{ post.extension | slice:"1:" | upper }}</label>
+			
+          {% endif %}   
+				
+
+				
+				{% endif %}
+			</div>
+  		                                                                          
+		  
+		  <h4>{{ post.title }}</h4> 
 		
 
            <p class="lead">{{ post.content }}</p> 
 
 
 
-			                 <hr class="style-one">
+			                 <hr>
 				
-			 
-				 {% if post.file %}
-               
 				 <div class="d-flex justify-content-between">
-				
+			
+
+             {% if post.file %}
 			 
-		 {% if post.extension == '.pdf' %}   
-		  <label class="badge badge-danger font-weight-bold">{{ post.extension | slice:"1:" | upper }} &#183; {{ post.file.size | filesizeformat}}</label>
-	 {% elif post.extension == '.ppt' or post.extension == '.pptx' %}  
-		  <label class="badge badge-warning font-weight-bold">{{ post.extension | slice:"1:" | upper }} &#183; {{ post.file.size | filesizeformat}}</label>
-	 {% elif post.extension == '.doc' or post.extension == '.docx' %}  	  
-		    <label class="badge badge-info font-weight-bold">{{ post.extension | slice:"1:" | upper }} &#183; {{ post.file.size | filesizeformat}}</label>
-			
-		{% elif post.extension == '.txt' %}  	  
-		    <label class="badge badge-success font-weight-bold">{{ post.extension | slice:"1:" | upper }} &#183; {{ post.file.size | filesizeformat}}</label>
+			 
+			 &nbsp;
+			 <div>
+             <a href="{% url 'post-detail' post.id %}" style="text-decoration:none;">
+            <button type="button" class="btn btn-light btn-icon btn-md">
+			 <i class="ti-link"></i>   
 
-		{% else %}  	  
-		    <label class="badge badge-danger font-weight-bold">{{ post.extension | slice:"1:" | upper }} &#183; {{ post.file.size | filesizeformat}}</label>
-			
-          {% endif %}
-
-            <a   href="{{ post.file.url }}"   download> <button type="submit" class="btn btn-primary btn-icon-text  btn-sm ">   
-			 <i class="ti-download btn-icon-prepend"></i>   
-			Download
-			</button> 
+            </button>
 			</a>
 			
+			&nbsp;
+			&nbsp;
+	      
+				 <a   href="{{ post.file.url }}"   download  style="text-decoration:none;" > 
+				 
+				 <button type="button" class="btn btn-light btn-icon btn-md">
+			 <i class="ti-import"></i>   
+
+            </button>
+			</a>
+            
+       
+</div>
+            
 		  </div>
 		  
 		
