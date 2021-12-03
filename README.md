@@ -20,5 +20,14 @@ A Django web application that allows users to view, share and manage study resou
 
 ## Snaps of project
 
-Home page (not logged in):
-<img src="Screenshots/home_page_n.jpg" alt="Home page n">
+Login page:
+
+<img src="Screenshots/login_page.jpg" alt="Home page n">
+
+Home page (logged in):
+
+<img src="Screenshots/home_page.jpg" alt="Home page">
+
+New upload (logged in):
+
+<img src="Screenshots/new_upload.jpg" alt="Home page">
