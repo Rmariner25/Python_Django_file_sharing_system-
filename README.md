@@ -12,4 +12,5 @@ A Django web application to allow users to view, share and manage study resource
 * Users can manage i.e edit and delete their uploads.
 * User can edit their profile.
 * Admin pages to regulate the content and manage users and their roles.
+* The web-pages are responsive, clean and clutter-free.
   
