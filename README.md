@@ -18,12 +18,63 @@ A Django web application that allows users to view, share and manage study resou
 * Admin pages to regulate the content and manage users and their roles.
 * The web-pages are responsive, clean and clutter-free.
 
+## Running the project locally
+
+### Pre-requisites:
+
+* Make sure you have [Python 3](https://www.python.org/downloads/) and pip installed on your system.
+
+### Steps:
+
+1. First, clone the repository to your local machine: 
+  
+   ```bash
+   git clone https://github.com/Rmariner25/django_web_app.git
+   ```
+  
+2. Then cd into the folder base directory `django_web_app`:
+
+   ```bash
+   cd django_web_app
+   ```
+
+3. Install virtual environment and activate it:
+* For Windows:
+   ```bash
+   pip install virtualenv 
+   virtualenv venv
+   venv\Scripts\activate
+   ```
+* For Ubuntu Linux:
+   ```bash
+   sudo apt install virtualenv
+   virtualenv -p python3 venv
+   source venv/bin/activate
+   ```
+  
+4. Install the dependencies as in `requirements.txt`:
+  
+   ```bash
+   pip install -r requirements.txt
+   ```
+  
+5. Run the development server:</li>
+
+   ```bash
+   python manage.py runserver
+   ```
+
+6. Copy the url http://127.0.0.1:8000 and paste it in your web browser's address bar. 
+
+### Superuser:
+
+7. To log into admin at http://127.0.0.1:8000/admin create a super user:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
 ## Screenshots
-
-Login page:
-
-![Login page](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/login_page.jpg) 
-<br>
 
 Home page (logged in):
 
@@ -34,4 +85,3 @@ New upload (logged in):
 
 ![New upload](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/new_upld.jpg) 
 <br>
-
