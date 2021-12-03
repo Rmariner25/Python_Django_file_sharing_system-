@@ -22,12 +22,16 @@ A Django web application that allows users to view, share and manage study resou
 
 Login page:
 
-![Home page](/Screenshots/login_page.jpg?raw=true "Home page") 
+![Login page](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/login_page.jpg) 
+<br>
 
 Home page (logged in):
 
-<img src="Screenshots/home_page.jpg" alt="Home page">
+![Home page](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/home_page.jpg) 
+<br>
 
 New upload (logged in):
 
-<img src="Screenshots/new_upld.jpg" alt="Home page">
+![New upload](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/new_upld.jpg) 
+<br>
+
