@@ -6,7 +6,7 @@
 
 A Django web application that allows users to view, share and manage study resources. 
 
-<h2>Features</h2>
+### Features
 
 * Users can share files (provided they are logged in) and download files uploaded by other users.
 * Users can search in the uploaded content.
