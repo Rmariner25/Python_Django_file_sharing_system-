@@ -17,4 +17,8 @@ A Django web application that allows users to view, share and manage study resou
 * User can edit their profile.
 * Admin pages to regulate the content and manage users and their roles.
 * The web-pages are responsive, clean and clutter-free.
-  
+
+## Snaps of project
+
+Home page (not logged in):
+<img src="Screenshots/home_page_n.jpg" alt="Home page n">
