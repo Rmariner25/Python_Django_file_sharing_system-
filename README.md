@@ -4,7 +4,7 @@
 [![Django CI](https://github.com/Rmariner25/django_web_app/actions/workflows/django.yml/badge.svg)](https://github.com/Rmariner25/django_web_app/actions/workflows/django.yml)
 [![MIT License](https://img.shields.io/github/license/Rmariner25/Django_web_app)](https://github.com/Rmariner25/django_web_app/blob/main/LICENSE)
 
-A Django web application to allow users to view, share and manage study resources. 
+A Django web application that allows users to view, share and manage study resources. 
 
 <h2>Features</h2>
 
