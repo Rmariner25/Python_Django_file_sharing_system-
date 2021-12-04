@@ -102,10 +102,12 @@ New upload:
 <br>
 
 Uploads by user:
+
 ![Uploads by user](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/user_uploads.jpg)
 <br>
 
 Edit profile:
+
 ![Edit profile](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/edit_profile.jpg)
 <br>
 
