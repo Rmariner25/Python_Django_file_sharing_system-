@@ -64,7 +64,7 @@ A Django web application that allows users to view, share and manage study resou
    python manage.py runserver
    ```
 
-6. Copy the url http://127.0.0.1:8000 and paste it in your web browser's address bar. 
+6. Now, copy the url http://127.0.0.1:8000 and paste it in your web browser's address bar. 
 
 ### Superuser:
 
