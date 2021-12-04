@@ -41,14 +41,22 @@ A Django web application that allows users to view, share and manage study resou
 3. Install virtual environment and activate it:
 * For Windows:
    ```bash
-   pip install virtualenv 
+   pip install virtualenv
+   ```
+   ```bash
    virtualenv venv
+   ```
+   ```bash 
    venv\Scripts\activate
    ```
 * For Ubuntu Linux:
    ```bash
    sudo apt install virtualenv
+   ```
+   ```bash
    virtualenv -p python3 venv
+   ```
+   ```bash
    source venv/bin/activate
    ```
   
