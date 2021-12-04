@@ -32,7 +32,7 @@ A Django web application that allows users to view, share and manage study resou
    git clone https://github.com/Rmariner25/django_web_app.git
    ```
   
-2. Then cd into the folder base directory `django_web_app`:
+2. Then cd into the folder `django_web_app`(base directory):
 
    ```bash
    cd django_web_app
