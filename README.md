@@ -84,6 +84,11 @@ A Django web application that allows users to view, share and manage study resou
 
 ## Screenshots
 
+Login page:
+
+![Login page](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/login_page.jpg)
+<br>
+
 Home page (logged in):
 
 ![Home page](https://github.com/Rmariner25/django_web_app/blob/main/Screenshots/home_page.jpg) 
